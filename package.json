@@ -1,0 +1,56 @@
+{
+  "name": "@reqall/openclaw-plugin",
+  "version": "2026.10.4",
+  "description": "Reqall plugin for OpenClaw — persistent semantic memory via MCP, skills, and lifecycle hooks",
+  "type": "module",
+  "main": "./index.js",
+  "openclaw": {
+    "extensions": ["./index.js"],
+    "compat": {
+      "pluginApi": ">=2026.9.8"
+    },
+    "install": {
+      "npmSpec": "@reqall/openclaw-plugin",
+      "minHostVersion": ">=2026.9.8"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs && npm pack --dry-run"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.9.8"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  },
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "src",
+    "lib",
+    "skills",
+    "REQALL.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "reqall",
+    "openclaw",
+    "openclaw-plugin",
+    "mcp",
+    "memory",
+    "agent-skills",
+    "project-context"
+  ],
+  "homepage": "https://github.com/ReqallSystem/openclaw_plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReqallSystem/openclaw_plugin.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

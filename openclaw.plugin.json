@@ -1,0 +1,47 @@
+{
+  "id": "reqall",
+  "name": "Reqall",
+  "description": "Persistent semantic project memory for OpenClaw agents: recall before work, persist before done, via the Reqall MCP server.",
+  "version": "2026.10.4",
+  "categories": ["memory"],
+  "activation": { "onStartup": true },
+  "skills": ["./skills"],
+  "mcpServers": {
+    "reqall": {
+      "url": "https://www.reqall.net/mcp",
+      "transport": "streamable-http",
+      "auth": "oauth"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "autoContext": {
+        "type": "string",
+        "enum": ["inject", "reminder", "off"],
+        "default": "inject",
+        "description": "inject: recall per prompt; reminder: project binding only; off: no per-prompt context"
+      },
+      "autoPersist": {
+        "type": "string",
+        "enum": ["revise", "off"],
+        "default": "revise",
+        "description": "revise: one extra pass to persist unrecorded edits before finalizing"
+      },
+      "contextLimit": { "type": "integer", "minimum": 1, "maximum": 20, "default": 5 },
+      "openLimit": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 },
+      "projectName": {
+        "type": "string",
+        "description": "Fixed Reqall project name (REQALL_PROJECT_NAME still wins)"
+      }
+    }
+  },
+  "uiHints": {
+    "projectName": {
+      "label": "Reqall project",
+      "placeholder": "org/repo",
+      "help": "Leave empty to detect from the workspace (Git origin, .reqall.yml, package identity)"
+    }
+  }
+}
