@@ -9,10 +9,12 @@ the `memory` slot, so it runs alongside `memory-core` or any other memory plugin
 
 ## Install
 
+The plugin installs from GitHub; it is not published to npm.
+
 ```bash
-openclaw plugins install npm:@reqall/openclaw-plugin --accept-capabilities
-# or from GitHub
 openclaw plugins install git:github.com/ReqallSystem/openclaw_plugin --accept-capabilities
+# OpenClaw asks you to confirm a git source; non-interactive installs also need --force.
+# `openclaw plugins update reqall` re-resolves the recorded git source later.
 
 # Recall and the persist pass read the conversation, which OpenClaw gates for
 # non-bundled plugins:
